@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>AGHAI SuperMarket</title>
+    <script src="js/static/babylon.js"></script>
+    <!-- <script src="js/dynamic/code.js"></script> -->
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/5D281CB6-4DD9-3C46-8A10-9CB552A75735/main.js" charset="UTF-8"></script><script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-41767310-1', 'babylonjs.com');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+   
+    </script>
+    <style>
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    /*position: fixed;*/
+    touch-action: none;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #800080;
+    position: fixed;
+    top: 0;
+    width: auto;
+    display: -webkit-inline-box;
+    height: 10px;
+    padding: 3px;
+  }
+.navbar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 17px 6px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+
+        /*
+        .forward input {
+	    	position: absolute;
+			left: 40px;
+			bottom: 6em;
+			font-size: 20px;
+		}
+        .right input {
+	    	position: absolute;
+			left: 60px;
+			bottom: 4em;
+			font-size: 20px;
+		}
+		.left input {
+	    	position: absolute;
+			left: 5px;
+			bottom: 4em;
+			font-size: 20px;
+		}
+
+		.back input {
+	    	position: absolute;
+			left: 40px;
+			bottom: 2em;
+			font-size: 20px;
+		}
+		.test input {
+	    	position: absolute;
+			left: 80px;
+			bottom: 2em;
+			font-size: 20px;
+		}*/
+		
+    .addcart  {
+          position: absolute;
+          width:40%;
+          background-image: none;
+         background: #282828;
+         border: 1px solid #282828;
+          left: 2%;
+        text-align: center;
+        bottom: 20%;
+        font-size: 20px;
+        cursor: pointer;
+        display:inline-block;
+        box-sizing: border-box;
+       color:#fff;
+
+      }
+  		.addcart:hover{
+  			background-color: #fff;
+            color: black;
+            //border: none;
+            border: 2px solid #282828;
+  		}
+      button {
+    outline: none;
+     }
+      button.boxclose:focus {
+    outline: none;
+     }
+    .addcart:active {
+       background-color: #fff;
+      
+      }
+
+  		.buy{
+      		position: absolute;
+          width:40%;
+          background-image: none;
+         background: #282828;
+         border: 1px solid #282828;
+          left: 2%;
+        text-align: center;
+        bottom: 12%;
+        font-size: 20px;
+        cursor: pointer;
+        display:inline-block;
+        box-sizing: border-box;
+       color:#fff;
+  		}
+      .buy:hover{
+        background-color: #fff;
+            color: black;
+            border: 2px solid #282828;
+      }
+      .buy:active {
+       background-color: #fff;
+      
+      }
+       .quantincrement  {
+          position: absolute;
+          width:5%;
+          background-image: none;
+         background: #fff;
+         border: 1px solid #e1e1e1;
+          left: 5.5%;
+        //right: 10%;
+        text-align: center;
+        bottom: 27%;
+        font-size: 18px;
+        cursor: pointer;
+        display:inline-block;
+        box-sizing: border-box;
+       color:#282828;
+
+      }
+      .quantincrement:hover{
+        background-color: black;
+            color: white;
+          }
+           .quant1  {
+          position: absolute;
+          width:10%;
+          background-image: none;
+         background: #fbfbfb;
+         border: 1px solid #e1e1e1;
+          left: 10%;
+        text-align: center;
+        bottom: 27%;
+        font-size: 18px;
+        display:inline-block;
+        box-sizing: border-box;
+       color:#282828;
+       text-decoration: none;
+
+      }
+      .quantdecrement  {
+          position: absolute;
+          width:5%;
+          background-image: none;
+         background: #fff;
+         border: 1px solid #e1e1e1;
+          left: 20%;
+        text-align: center;
+        bottom: 27%;
+        font-size: 18px;
+        cursor: pointer;
+        display:inline-block;
+        box-sizing: border-box;
+       color:#282828;
+
+      }
+      .quantdecrement:hover{
+        background-color: black;
+            color: white;
+          }
+      .social {
+          position: absolute;
+          width:78px;
+         background: #fff;
+          left: 2%;
+        text-align: center;
+        bottom: 8%;
+        font-size: 14px;
+        cursor: pointer;
+        display:inline-block;
+       color:black;
+       text-decoration: none;
+      }
+      .detailpage {
+        position: absolute;
+        width:45%;
+        height:50%;
+          position: absolute;
+          left: 0%;
+        //right: 10%;
+        text-align: left;
+        bottom: 49%;
+        //font-size: 20px;
+        color: black;
+        font: 500 20px/1.35 PT Sans, Helvetica Neue, Verdana, Arial, sans-serif;
+        padding: 5px;
+      }
+		#renderCanvas {
+	        width: 100%;
+	        height: 100%;
+          outline: 0;
+    	}
+      #renderingZone {
+    width: 100%;
+    height: 100%;
+     }
+		#renderCanvas1 {
+	        width: 100%;
+	        height: 100%;
+	        position: relative;
+	    }
+		.boxclose{
+      float:right;
+      position: absolute;  
+		    right:0%;
+        top:0;
+         border: none;
+         font-size: 31px;
+        font-weight: bold;
+            cursor:pointer;
+            color:white;
+            width: 36px;
+            height: 36px;
+          background: #000 !important;
+          border-radius: 0;
+        z-index: 1; 
+        text-shadow: none;
+      line-height: inherit;
+    text-decoration: none;
+    
+		}
+    p{
+      margin: -8px 1px 7px;
+
+      }
+		#overlay {
+		  position: absolute;
+		}
+       #babylonjsLoadingDiv {
+          position: absolute;
+            z-index: 3;
+        }
+
+.fa:hover {
+  text-decoration: none;
+    color:pink;
+}
+a{
+  color:black;
+}
+.addvalue{
+  background:white;
+  color:pink;
+ display:inline;
+}
+    input.addqty{
+    width: auto;
+    max-width: 20px;
+    height: 14px;
+    text-align: center;
+    }
+    a.mcart{a
+      padding-right: 0px;
+    }
+@media (max-width: 480px) {
+   #buttonnav  {
+    display: none !important;
+  }
+}
+i {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 4px;
+    cursor: pointer;
+}
+.circel {
+    background-color: blue;
+    width: 180px;
+    height: 180px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-left: 84%;
+    bottom: 12px;
+    position: fixed;
+}
+.outer {
+    background-color: blue;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-left: 24px;
+    bottom: 37px;
+    position: fixed;
+}
+p i.up {
+    float: none;
+    margin-left: 46%;
+    margin-top: 0px;
+}
+.inner {
+    background-color: yellow;
+    top: 21%;
+    left: 35%;
+    width: 30%;
+    height: 30%;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 50%;
+    z-index: 999999;
+}
+p i.right {
+    float: right;
+    margin-top: -3px;
+    position: relative;
+    margin-right: 4px;
+}
+p i.left {
+    margin-top: -3px;
+    position: absolute;
+    margin-left: 2px;
+}
+p i.down {
+    float: none;
+    margin-left: 47%;
+    margin-top: 55px;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+p{
+  margin: 0px;
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <a class="mcart"  href="#">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+    <div class="addvalue"><input type="text" class='addqty' id="qty" value="0" readonly></input>
+    </div>
+</div>
+
+<div class="circel">
+ <div class="outer">
+    <p><i class="up" id = "up"  onmousedown="moveup()" ontouchstart="moveup()"></i></p>
+    <div class="inner" id = "inner"></div>
+    <p><i class="right" id = "right" onmousedown="moveright()"  ontouchstart="moveright()"></i></p>
+    <p><i class="left" id = "left"  onmousedown="moveleft()" ontouchstart="moveleft()"></i></p>
+    <p><i class="down" id = "down" onmousedown="movedown()" ontouchstart="movedown()"></i></p>
+</div>
+</div>
+<!-- 
+<div id="buttonnav">
+    <p class="forward">
+    <input  id="forward" type="button" value="&#x2191;"/>
+    </p>
+    <p class="left">
+    <input  id="left" type="button" value="&#x2190;"/> -->
+   <!-- <input  id="left"  title="Caution! Before Pressing this Button Make sure you are front of Escalator." type="button" value="E"/>-->
+    <!-- left aerrow code:  &#x2190; -->
+   <!--  </p>
+    <p class="right">
+    <input  id="right" type="button" value="&#x2192;"/>
+    </p>
+    <p class="back">
+    <input  id="back" type="button" value="&#x2193;"/>
+    </p>
+</div> -->
+ 
+<div id="renderingZone"> 
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+  </div>
+ 	<!-- popup for 3D -->
+	<div id="popup" style="display:none;z-index:1;width:70%;position:absolute;top:10%;left:15%;bottom:10%;background-color:#000000;">
+    <button type="button" class='boxclose' onclick='HandlePopup();'><p>x</p></button>
+    
+		<canvas id='renderCanvas1'></canvas>
+      <button type="button" class='addcart' id="add_tocart_btn" >Add to Cart</button>
+    
+    <button type="button" id="buy_now_btnz"  class='buy' >Buy Now </button>
+     <button type="button" class='quantincrement' onclick='buttoninc();'>+</button>
+    <input type="text" class='quant1' id="quant" value="1" readonly></input>
+    <button type="button" class='quantdecrement' onclick='buttondec();'>-</button>
+        <div class="social">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                         <a href="#" class="fa fa-google"></a>
+                       <a href="#" class="fa fa-pinterest"></a>
+                      <a href="#" class="fa fa-envelope-o"></a>   
+        </div>
+
+    <div class=detailpage>
+    <div class="nametag" name="smname" id="nametag"></div>
+    <!-- custom product names -->
+    <div class= "reviewsku">
+    <div class="product attribute sku" style="color:#333;font-size: 14px;">SKU#:GU04</div>
+    <div class="review" style="float:right;">
+      <span class="glyphicon glyphicon-star-empty"></span> 
+      <span class="glyphicon glyphicon-star-empty"></span>   
+      <span class="glyphicon glyphicon-star-empty"></span>   
+      <span class="glyphicon glyphicon-star-empty"></span>   
+      <span class="glyphicon glyphicon-star-empty"></span>   
+    </div>
+    </div>
+    <div class="stock available" title="available" style="color:green;">
+    <span>IN STOCK</span></div>
+    <div class="price">
+    <span>$108</span></div><!--product price-->
+  
+
+ <!-- <script type="text/javascript" src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+   <script type="text/javascript" src="code2.js"></script> 
+ 
+     <div id="testing"> 
+        <canvas id='canvas99' width="450" height="400"></canvas>
+   </div>  	
+	</div> -->
+  </div>
+ <!--  <div class="outer">
+    <p><i class="up" onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()"></i></p>
+    <div class="inner">&nbsp;</div>
+    <p><i class="right" onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()"></i></p>
+    <p><i class="left" onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()"></i></p>
+    <p><i class="down" onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()"></i></p>
+</div> -->
+
+<script src="js/dynamic/code2.js"></script>
+</body>
+
+</html>

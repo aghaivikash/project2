@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>zoom</title>
+	<link type="text/css" rel="stylesheet" href="magic360/magic360.css"/>
+<script src="magic360/magic360.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="magiczoomplus/magiczoomplus.css"/>
+<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="zoom-box" style="display:none">
+<a id="zoom" class="MagicZoom" href="large-image-1.jpg"><img src="small-image-1.jpg" alt=""/></a>
+</div>
+<div id="spin-box">
+<a id="spin" class="Magic360" href="#" data-magic360-options="filename:spin-image-{col}.jpg;"><img src="spin-image-01.jpg" alt=""/></a>
+</div>
+<div>
+<a class="item-thumbnail" onclick="return switchZoom360Example(this);" ontouchstart="return switchZoom360Example(this);" data-zoom-id="zoom" href="large-image-1.jpg" data-image="small-image-1.jpg"><img src="thumb-image-1.jpg" alt=""/></a>
+<a class="item-thumbnail" onclick="return switchZoom360Example(this);" ontouchstart="return switchZoom360Example(this);" data-zoom-id="zoom" href="large-image-2.jpg" data-image="small-image-2.jpg"><img src="thumb-image-2.jpg" alt=""/></a>
+<a class="item-thumbnail" onclick="return switchZoom360Example(this);" ontouchstart="return switchZoom360Example(this);" data-zoom-id="spin" href="#"><img src="360icon.png" alt=""/></a>
+</div>
+
+<script type="text/javascript">
+function switchZoom360Example(elm) {
+        var zoom = elm.getAttribute('data-zoom-id')=='zoom';
+        document.getElementById('zoom-box').style.display = (zoom)?'block':'none';
+        document.getElementById('spin-box').style.display = (zoom)?'none':'block';
+        return false;
+}
+</script>
+</body>
+</html>

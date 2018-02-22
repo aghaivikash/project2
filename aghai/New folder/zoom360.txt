@@ -1,0 +1,24 @@
+createjs:-libraries
+
+addChild:-Adds a child to the top of the display list. 
+
+Bitmap Class:-A Bitmap represents an Image, Canvas, or Video in the display list. 
+            A Bitmap can be instantiated using an existing HTML element, or a string.
+
+Shape Class:-A Shape allows you to display vector art in the display list. 
+            It composites a Graphics instance which exposes all of the vector drawing methods. 
+            The Graphics instance can be shared between multiple Shape instances to display 
+             the same vector graphics with different positions or transforms.
+
+ticket:-The Ticker provides a centralized tick or heartbeat broadcast at a set interval. 
+      Listeners can subscribe to the tick event to be notified when a set time interval has elapsed.
+      Note that the interval that the tick event is called is a target interval, 
+       and may be broadcast at a slower interval when under high CPU load. 
+       The Ticker class uses a static interface (ex. Ticker.framerate = 30;) and can not be instantiated.
+
+FPS:-Frame Per Second 
+
+Stage Class:-A stage is the root level Container for a display list. 
+            Each time its tick method is called, it will render its display list to its target canvas.
+
+Touch Class:-Global utility for working with multi-touch enabled devices in EaselJS
